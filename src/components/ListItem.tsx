@@ -1,4 +1,3 @@
-import xmark from "../assets/img/xmark-svgrepo-com.svg"
 import eject from "../assets/img/eject.svg"
 import { MouseEvent } from "react"
 

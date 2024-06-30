@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ListPanel from "./components/ListPanel"
 import Cartridge from "./components/Cartiridge";
 // import { sleep } from "./utils"
