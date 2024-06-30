@@ -1,4 +1,4 @@
-import eject from "../assets/img/eject.svg"
+import eject from "/src/assets/img/eject.svg"
 import { MouseEvent } from "react"
 
 interface ListItemProp {
