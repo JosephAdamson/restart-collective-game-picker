@@ -2,7 +2,7 @@
   "name": "restart-collective",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://josephadamson.github.io/restart-collective-game-picker",
+  "homepage": "https://JosephAdamson.github.io/restart-collective-game-picker",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
