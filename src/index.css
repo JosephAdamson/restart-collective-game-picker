@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-[#e5e5e5] w-screen h-screen text-black font-play;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-snesLightGrey;
+    }
+    
+    ::-webkit-scrollbar {
+        @apply bg-snesLightGrey w-[5px];
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        @apply bg-snesGrey rounded-lg;
+    }
+}
