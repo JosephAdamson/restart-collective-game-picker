@@ -12,11 +12,19 @@ export default function App() {
     return games;
   }
 
-  const addGamesHandler = (game: string) => {
-    if (games.length === 0) {
-      setGames([game]);
+  const addGamesHandler = (newGames: string[]) => {
+    if (newGames.length > 1) {
+      if (games.length === 0) {
+        setGames([...newGames]);
+      } else {
+        setGames([...games, ...newGames]);
+      }
     } else {
-      setGames([...games, game])
+      if (games.length === 0) {
+        setGames([newGames[0]]);
+      } else {
+        setGames([...games, newGames[0]])
+      }
     }
   }
 

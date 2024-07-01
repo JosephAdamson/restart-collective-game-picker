@@ -3,7 +3,7 @@ import ListItem from "./ListItem";
 import { standardHash, caseInsensitiveIncludes } from "../utils"
 
 interface listPanelProps {
-    addGameHandler: (game: string) => void,
+    addGameHandler: (game: string[]) => void,
     deleteGameHandler: (game: string) => void,
     getGamesHandler: () => string[],
     randomPickHandler: () => void
@@ -30,14 +30,23 @@ export default function ListPanel({
 
     const addGame = () => {
         if (userInputField.current && userInputField.current.value !== "") {
-            if (caseInsensitiveIncludes(getGamesHandler(), userInputField.current.value)) {
+            if (userInputField.current.value.includes(",")) {
+                let newGames = userInputField.current.value.split(",");
+                newGames = newGames.map(game => game.trim());
+                newGames = newGames.filter(game => game !== "");
+                newGames = newGames.filter(game => !caseInsensitiveIncludes(getGamesHandler(), game));
+                addGameHandler(newGames);
+                userInputField.current.value = "";
+            } else if (caseInsensitiveIncludes(getGamesHandler(), userInputField.current.value)) {
                 userInputField.current.value = "";
                 setUserInputError(true);
                 setErrorMsg("ERROR: Sorry chief, we have that one...");
             } else {
-                setUserInputError(false);
-                addGameHandler(userInputField.current.value)
-                userInputField.current.value = "";
+                if (userInputField.current.value.trim() !== "") {
+                    setUserInputError(false);
+                    addGameHandler([userInputField.current.value])
+                    userInputField.current.value = "";
+                }
             }
         } else {
             setUserInputError(true);
